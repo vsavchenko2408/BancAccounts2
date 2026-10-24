@@ -1,13 +1,13 @@
 #pragma once
-#include "client.h"
 #include <vector>
-
+#include "client.h"
+#include "transaction.h"
 class Account
 {
     int _clientID;
     static int _accountID;
     long long _money;
-    //std::vector<Transaction> _transactions;
+    std::vector<Transaction> _transactions;
     bool _isActiveAccount;
 
     public:
@@ -16,4 +16,18 @@ class Account
     {
         _accountID++;
     }
+    long long getMoney()
+    {
+        return _money;
+    }
+    bool transfer(long long valueToTransfer)
+    {
+        if(valueToTransfer >=_money)
+        {
+            _money = _money - valueToTransfer;
+            return true;
+        }
+        return false;
+    }
+    
 };
