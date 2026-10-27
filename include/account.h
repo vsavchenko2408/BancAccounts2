@@ -34,11 +34,16 @@ class Account
         return _money;
     }
 
-    bool transfer(long long valueToTransfer)
+    bool withdraw(long long valueToWithdraw)
     {
-        if(valueToTransfer >=_money)
+        if(valueToWithdraw < 1)
         {
-            _money = _money - valueToTransfer;
+            return false;
+        }
+
+        if(valueToWithdraw <= _money)
+        {
+            _money = _money - valueToWithdraw;
             return true;
         }
         return false;
