@@ -1,3 +1,3 @@
 #include "../include/client.h"
 
-int Client::_clientID = 0;
+int Client::_countID = 0;

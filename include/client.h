@@ -4,18 +4,19 @@ class Client
 {
     std::string _name;
     std::string _surname;
-    static int _clientID;
+    static int _countID;
+    int _ID;
     public:
     Client():_name("nobody"), _surname("noone")
     {
-        _clientID++;
+        _ID = ++_countID;
     }
     Client(std::string name, std::string surname): _name(name), _surname(surname)
     {
-        _clientID++;
+        _ID = ++_countID;
     }
-    int get_clientID()
+    int get_clientID() const
     {
-        return _clientID;
+        return _ID;
     }
 };
