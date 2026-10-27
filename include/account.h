@@ -34,19 +34,37 @@ class Account
         return _money;
     }
 
-    bool withdraw(long long valueToWithdraw)
+    bool add_money(long long money)
     {
-        if(valueToWithdraw < 1)
+        if(_isActiveAccount)
+        {
+        if(money < 1)
         {
             return false;
         }
-
-        if(valueToWithdraw <= _money)
-        {
-            _money = _money - valueToWithdraw;
-            return true;
+        _money = _money + money;
+        return true;
         }
         return false;
     }
+
+    bool withdraw(long long valueToWithdraw)
+    {
+        if(_isActiveAccount)
+        {
+            if(valueToWithdraw < 1)
+            {
+                return false;
+            }
+            if(valueToWithdraw <= _money)
+            {
+                _money = _money - valueToWithdraw;
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+
     
 };

@@ -14,6 +14,8 @@ int main()
 
     Account a(c);
     Account b(c);
-    std::cout << "ID a: " <<  a.get_ID() << std::endl;
-    std::cout << "ID b: " <<  b.get_ID() << std::endl;
+    a.add_money(400);
+    if(a.withdraw(300)) std::cout << "Money withdraw succesfull!" << std::endl;
+    else std::cerr << "Something wrong. Meybe not enought money!" << std::endl;
+;
 }
